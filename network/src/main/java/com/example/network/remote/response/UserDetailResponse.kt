@@ -2,7 +2,7 @@ package com.example.network.remote.response
 
 import com.example.domain.users.model.UserDetail
 
-class UserDetailResponse(
+data class UserDetailResponse(
     val avatar_url: String? = null, // https://avatars.githubusercontent.com/u/1?v=4
     val bio: Any? = null, // null
     val blog: String? = null, // http://tom.preston-werner.com
