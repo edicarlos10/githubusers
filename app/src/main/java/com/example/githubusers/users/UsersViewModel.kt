@@ -26,7 +26,7 @@ class UsersViewModel(
     val users: LiveData<Users?>
         get() = _users
 
-    fun getWeatherForecast() {
+    fun getUsers() {
         getUsersUseCase.execute()
             .subscribeOn(scheduler.backgroundThread())
             .observeOn(scheduler.mainThread())
