@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface IGitHubUsersApiClient {
     @GET("users")
     fun getGitHubUsers(
-    ): Single<Response<UsersResponse>>
+    ): Single<Response<List<UsersResponse>>>
 }
