@@ -22,8 +22,8 @@ class UsersViewModel(
     val loading: LiveData<Boolean?>
         get() = _loading
 
-    private val _users = MutableLiveData<Users?>()
-    val users: LiveData<Users?>
+    private val _users = MutableLiveData<List<Users>?>()
+    val users: LiveData<List<Users>?>
         get() = _users
 
     fun getUsers() {
@@ -33,8 +33,8 @@ class UsersViewModel(
             .subscribe {
                 _loading.value = it.isLoading()
                 when (it) {
-                    is Event.Data<*> -> {
-                        _users.value = it.data as Users
+                    is Event.Data<List<Users>> -> {
+                        _users.value = it.data
                     }
 
                     is Event.Error -> {

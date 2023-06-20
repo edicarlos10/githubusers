@@ -9,11 +9,11 @@ import io.reactivex.Observable
 class GetUsersUseCase(
     private val repository: IUsersRepository
 ) {
-    fun execute(): Observable<Event<Users>> {
+    fun execute(): Observable<Event<List<Users>>> {
         return Observable.concat(Observable.just(Event.loading()), getWeatherForecast())
     }
 
-    private fun getWeatherForecast(): Observable<Event<Users>>? {
+    private fun getWeatherForecast(): Observable<Event<List<Users>>>? {
         return repository.getUsers()
             .map { Event.data(it) }
             .onErrorReturn { throwable ->

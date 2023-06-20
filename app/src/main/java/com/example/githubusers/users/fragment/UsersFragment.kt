@@ -46,7 +46,7 @@ class UsersFragment : Fragment() {
         usersViewModel.getUsers()
     }
 
-    private fun onData(users: Users?) {
+    private fun onData(users: List<Users>?) {
         users.let {
 
         }
