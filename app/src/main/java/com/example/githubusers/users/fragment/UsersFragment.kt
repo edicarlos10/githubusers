@@ -54,13 +54,17 @@ class UsersFragment : Fragment() {
 
     private fun onLoading(loading: Boolean?) {
         loading?.let {
-            if (it) binding.textMain.visibility = View.GONE
+            if (it){
+                binding.pbMain.visibility = View.GONE
+                binding.textError.visibility = View.GONE
+            }
             else
-                binding.textMain.visibility = View.VISIBLE
+                binding.pbMain.visibility = View.VISIBLE
         }
     }
 
     private fun onError(error: Event.Error?) {
+        binding.textError.visibility = View.VISIBLE
         if (error == null)
             return
     }
