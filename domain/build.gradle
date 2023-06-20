@@ -53,9 +53,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.6'
     implementation 'com.squareup.moshi:moshi-kotlin:1.12.0'
 
-//    implementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.6'
     implementation 'io.mockk:mockk:1.12.3'
-    //implementation 'io.mockk:mockk-android:1.12.3'
     implementation 'org.mockito:mockito-android:4.4.0'
     implementation 'org.mockito:mockito-core:4.4.0'
 
