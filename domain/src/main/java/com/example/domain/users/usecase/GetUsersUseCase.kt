@@ -10,10 +10,10 @@ class GetUsersUseCase(
     private val repository: IUsersRepository
 ) {
     fun execute(): Observable<Event<List<Users>>> {
-        return Observable.concat(Observable.just(Event.loading()), getWeatherForecast())
+        return Observable.concat(Observable.just(Event.loading()), getUsers())
     }
 
-    private fun getWeatherForecast(): Observable<Event<List<Users>>>? {
+    private fun getUsers(): Observable<Event<List<Users>>>? {
         return repository.getUsers()
             .map { Event.data(it) }
             .onErrorReturn { throwable ->
