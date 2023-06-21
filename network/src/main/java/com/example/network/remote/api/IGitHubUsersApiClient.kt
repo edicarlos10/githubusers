@@ -14,9 +14,9 @@ interface IGitHubUsersApiClient {
     ): Single<Response<List<UsersResponse>>>
 
     @GET("users/{username}")
-    fun getUserDetail(username: String): Single<Response<UserDetailResponse>>
+    fun getUserDetail(@Path("username") username: String?): Single<Response<UserDetailResponse>>
 
     @GET("users/{username}/repos")
-    fun getUserRepos(@Path("username") username: String): Single<Response<List<UserReposResponse>>>
+    fun getUserRepos(@Path("username") username: String?): Single<Response<List<UserReposResponse>>>
 
 }
