@@ -1,7 +1,9 @@
 package com.example.domain.users.model
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Owner(
     val avatar_url: String? = null, // https://avatars.githubusercontent.com/u/3?v=4
     val events_url: String? = null, // https://api.github.com/users/pjhyett/events{/privacy}
@@ -21,4 +23,4 @@ data class Owner(
     val subscriptions_url: String? = null, // https://api.github.com/users/pjhyett/subscriptions
     val type: String? = null, // User
     val url: String? = null // https://api.github.com/users/pjhyett
-): Serializable
+): Parcelable
