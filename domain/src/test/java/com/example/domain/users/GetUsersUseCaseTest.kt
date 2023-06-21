@@ -11,7 +11,7 @@ import io.mockk.impl.annotations.RelaxedMockK
 import io.reactivex.Single
 import org.junit.Test
 
-class GetUsersUseCase : BaseTest() {
+class GetUsersUseCaseTest : BaseTest() {
     @RelaxedMockK
     private lateinit var repository: IUsersRepository
 
