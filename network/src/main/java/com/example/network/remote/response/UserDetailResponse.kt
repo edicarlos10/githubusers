@@ -36,7 +36,7 @@ data class UserDetailResponse(
     val updated_at: String? = null, // 2023-03-22T15:06:06Z
     val url: String? = null // https://api.github.com/users/mojombo
 ) {
-    fun toUsersDetail(): UserDetail = UserDetail(
+    fun toUserDetail(): UserDetail = UserDetail(
     avatar_url ?: "",// https://avatars.githubusercontent.com/u/1?v=4
     bio,// null
     blog ?: "",// http://tom.preston-werner.com
