@@ -41,6 +41,14 @@ Outros detalhes podem ser _conferidos nos arquivos do projeto._
 Também acrescento que, **considero ferramentas, que posso usar a qualquer momento**, pode ser usado o jetpack compose, Flow e as coroutines mas devido a **deadline** segui com as quais 
 consigo entregar dentro do tempo definido.
 
+# Preview do APP rodando
+
+Testes unitários foram criados para a camada de Network e Domain. Elas englobam:
+- Remote data
+- Repository
+- Use Cases
+
+Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste
 
 # Preview do APP rodando
 
