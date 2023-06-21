@@ -60,7 +60,7 @@ class UsersViewModel(
             }.addTo(disposables)
     }
 
-    fun getUserDetailUseCase(username: String) {
+    fun getUserDetail(username: String) {
         getUserDetailUseCase.execute(username)
             .subscribeOn(scheduler.backgroundThread())
             .observeOn(scheduler.mainThread())
