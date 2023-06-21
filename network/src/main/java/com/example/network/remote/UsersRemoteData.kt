@@ -1,6 +1,7 @@
 package com.example.network.remote
 
 import com.example.domain.users.model.UserDetail
+import com.example.domain.users.model.UserRepos
 import com.example.domain.users.model.Users
 import com.example.network.remote.api.IGitHubUsersApiClient
 import io.reactivex.Single
@@ -26,6 +27,17 @@ class UsersRemoteData (private val apiGitHubUsers: IGitHubUsersApiClient) : IUse
                 it.body()?.toUserDetail()
                     ?: throw Exception(errorBody)
 
+            }
+    }
+
+    override fun getUserRepos(username: String): Single<List<UserRepos>> {
+        return apiGitHubUsers.getUserRepos(username)
+            .map {
+                errorBody = it.errorBody()?.string()
+
+                it.body()?.map { list ->
+                    list.toUsersRepos()
+                } ?: throw Exception(errorBody)
             }
     }
 }
