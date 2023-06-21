@@ -1,6 +1,7 @@
 package com.example.network.remote.api
 
 import com.example.network.remote.response.UserDetailResponse
+import com.example.network.remote.response.UserReposResponse
 import com.example.network.remote.response.UsersResponse
 import io.reactivex.Single
 import retrofit2.Response
@@ -16,6 +17,6 @@ interface IGitHubUsersApiClient {
     fun getUserDetail(username: String): Single<Response<UserDetailResponse>>
 
     @GET("users/{username}/repos")
-    fun getUserRepos(@Path("username") username: String): Single<Response<List<UserDetailResponse>>>
+    fun getUserRepos(@Path("username") username: String): Single<Response<List<UserReposResponse>>>
 
 }
