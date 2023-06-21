@@ -38,11 +38,11 @@ data class UserDetailResponse(
 ) {
     fun toUsersDetail(): UserDetail = UserDetail(
     avatar_url ?: "",// https://avatars.githubusercontent.com/u/1?v=4
-    bio ?: "",// null
+    bio,// null
     blog ?: "",// http://tom.preston-werner.com
     company ?: "",// @chatterbugapp, @redwoodjs, @preston-werner-ventures 
     created_at ?: "",// 2007-10-20T05:24:19Z
-    email ?: "",// null
+    email,// null
     events_url ?: "",// https://api.github.com/users/mojombo/events{/privacy}
     followers ?: 0, // 23516
     followers_url ?: "",// https://api.github.com/users/mojombo/followers
