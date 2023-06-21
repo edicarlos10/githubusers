@@ -1,0 +1,85 @@
+package com.example.domain.users.model
+
+import java.io.Serializable
+
+data class UserRepos(
+    val allow_forking: Boolean? = null, // true
+    val archive_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/{archive_format}{/ref}
+    val archived: Boolean? = null, // false
+    val assignees_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/assignees{/user}
+    val blobs_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/git/blobs{/sha}
+    val branches_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/branches{/branch}
+    val clone_url: String? = null, // https://github.com/pjhyett/auto_migrations.git
+    val collaborators_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/collaborators{/collaborator}
+    val comments_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/comments{/number}
+    val commits_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/commits{/sha}
+    val compare_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/compare/{base}...{head}
+    val contents_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/contents/{+path}
+    val contributors_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/contributors
+    val created_at: String? = null, // 2008-03-16T00:44:24Z
+    val default_branch: String? = null, // master
+    val deployments_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/deployments
+    val description: String? = null, // Rails plugin for automating migrations
+    val disabled: Boolean? = null, // false
+    val downloads_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/downloads
+    val events_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/events
+    val fork: Boolean? = null, // false
+    val forks: Int? = null, // 45
+    val forks_count: Int? = null, // 45
+    val forks_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/forks
+    val full_name: String? = null, // pjhyett/auto_migrations
+    val git_commits_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/git/commits{/sha}
+    val git_refs_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/git/refs{/sha}
+    val git_tags_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/git/tags{/sha}
+    val git_url: String? = null, // git://github.com/pjhyett/auto_migrations.git
+    val has_discussions: Boolean? = null, // false
+    val has_downloads: Boolean? = null, // true
+    val has_issues: Boolean? = null, // true
+    val has_pages: Boolean? = null, // true
+    val has_projects: Boolean? = null, // true
+    val has_wiki: Boolean? = null, // true
+    val homepage: String? = null, // http://errtheblog.com/posts/65-automatically
+    val hooks_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/hooks
+    val html_url: String? = null, // https://github.com/pjhyett/auto_migrations
+    val id: Int? = null, // 4061
+    val is_template: Boolean? = null, // false
+    val issue_comment_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/issues/comments{/number}
+    val issue_events_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/issues/events{/number}
+    val issues_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/issues{/number}
+    val keys_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/keys{/key_id}
+    val labels_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/labels{/name}
+    val language: String? = null, // Ruby
+    val languages_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/languages
+    val license: License? = null,
+    val merges_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/merges
+    val milestones_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/milestones{/number}
+    val mirror_url: Any? = null, // null
+    val name: String? = null, // auto_migrations
+    val node_id: String? = null, // MDEwOlJlcG9zaXRvcnk0MDYx
+    val notifications_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/notifications{?since = null,all = null,participating}
+    val open_issues: Int? = null, // 1
+    val open_issues_count: Int? = null, // 1
+    val owner: Owner? = null,
+    val `private`: Boolean? = null, // false
+    val pulls_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/pulls{/number}
+    val pushed_at: String? = null, // 2013-04-25T20:41:57Z
+    val releases_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/releases{/id}
+    val size: Int? = null, // 118
+    val ssh_url: String? = null, // git@github.com:pjhyett/auto_migrations.git
+    val stargazers_count: Int? = null, // 146
+    val stargazers_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/stargazers
+    val statuses_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/statuses/{sha}
+    val subscribers_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/subscribers
+    val subscription_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/subscription
+    val svn_url: String? = null, // https://github.com/pjhyett/auto_migrations
+    val tags_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/tags
+    val teams_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/teams
+    val topics: List<Any?>? = null,
+    val trees_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/git/trees{/sha}
+    val updated_at: String? = null, // 2023-03-03T12:23:57Z
+    val url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations
+    val visibility: String? = null, // public
+    val watchers: Int? = null, // 146
+    val watchers_count: Int? = null, // 146
+    val web_commit_signoff_required: Boolean? = null // false
+):Serializable
