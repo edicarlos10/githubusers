@@ -3,7 +3,9 @@ package com.example.githubusers.users
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.domain.base.Event
+import com.example.domain.users.model.UserDetail
 import com.example.domain.users.model.Users
+import com.example.domain.users.usecase.GetUserDetailUseCase
 import com.example.domain.users.usecase.GetUsersUseCase
 import com.example.domain.util.ISchedulerProvider
 import com.example.githubusers.base.BaseViewModel
@@ -11,7 +13,8 @@ import io.reactivex.rxkotlin.addTo
 
 class UsersViewModel(
     scheduler: ISchedulerProvider,
-    private val getUsersUseCase: GetUsersUseCase
+    private val getUsersUseCase: GetUsersUseCase,
+    private val getUserDetailUseCase: GetUserDetailUseCase
 ) : BaseViewModel(scheduler) {
 
     private val _error = MutableLiveData<Event.Error?>()
@@ -26,6 +29,10 @@ class UsersViewModel(
     val users: LiveData<List<Users>?>
         get() = _users
 
+    private val _userDetails = MutableLiveData<UserDetail?>()
+    val userDetail: LiveData<UserDetail?>
+        get() = _userDetails
+
     fun getUsers() {
         getUsersUseCase.execute()
             .subscribeOn(scheduler.backgroundThread())
@@ -35,6 +42,26 @@ class UsersViewModel(
                 when (it) {
                     is Event.Data<List<Users>> -> {
                         _users.value = it.data
+                    }
+
+                    is Event.Error -> {
+                        _error.value = it
+                    }
+
+                    else -> Unit
+                }
+            }.addTo(disposables)
+    }
+
+    fun getUserDetailUseCase(username: String) {
+        getUserDetailUseCase.execute(username)
+            .subscribeOn(scheduler.backgroundThread())
+            .observeOn(scheduler.mainThread())
+            .subscribe {
+                _loading.value = it.isLoading()
+                when (it) {
+                    is Event.Data<*> -> {
+                        _userDetails.value = it.data as UserDetail
                     }
 
                     is Event.Error -> {

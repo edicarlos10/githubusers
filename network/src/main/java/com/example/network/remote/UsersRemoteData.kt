@@ -1,6 +1,6 @@
 package com.example.network.remote
 
-import com.example.domain.base.ThrowableBase
+import com.example.domain.users.model.UserDetail
 import com.example.domain.users.model.Users
 import com.example.network.remote.api.IGitHubUsersApiClient
 import io.reactivex.Single
@@ -15,6 +15,17 @@ class UsersRemoteData (private val apiGitHubUsers: IGitHubUsersApiClient) : IUse
                 it.body()?.map { list ->
                     list.toUsers()
                 } ?: throw Exception(errorBody)
+            }
+    }
+
+    override fun getUserDetail(username: String): Single<UserDetail> {
+        return apiGitHubUsers.getUserDetail(username)
+            .map {
+                errorBody = it.errorBody()?.string()
+
+                it.body()?.toUserDetail()
+                    ?: throw Exception(errorBody)
+
             }
     }
 }
