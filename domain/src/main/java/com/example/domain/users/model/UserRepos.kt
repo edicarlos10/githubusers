@@ -60,7 +60,7 @@ data class UserRepos(
     val open_issues: Int? = null, // 1
     val open_issues_count: Int? = null, // 1
     val owner: Owner? = null,
-    val `private`: Boolean? = null, // false
+    val private: Boolean? = null, // false
     val pulls_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/pulls{/number}
     val pushed_at: String? = null, // 2013-04-25T20:41:57Z
     val releases_url: String? = null, // https://api.github.com/repos/pjhyett/auto_migrations/releases{/id}
