@@ -23,9 +23,17 @@ class UsersViewModel(
     val error: LiveData<Event.Error?>
         get() = _error
 
+    private val _errorRepos = MutableLiveData<Event.Error?>()
+    val errorRepos: LiveData<Event.Error?>
+        get() = _errorRepos
+
     private val _loading = MutableLiveData<Boolean?>()
     val loading: LiveData<Boolean?>
         get() = _loading
+
+    private val _loadingRepos = MutableLiveData<Boolean?>()
+    val loadingRepos: LiveData<Boolean?>
+        get() = _loadingRepos
 
     private val _users = MutableLiveData<List<Users>?>()
     val users: LiveData<List<Users>?>
@@ -84,14 +92,14 @@ class UsersViewModel(
             .subscribeOn(scheduler.backgroundThread())
             .observeOn(scheduler.mainThread())
             .subscribe {
-                _loading.value = it.isLoading()
+                _loadingRepos.value = it.isLoading()
                 when (it) {
                     is Event.Data<List<UserRepos>> -> {
                         _userRepos.value = it.data
                     }
 
                     is Event.Error -> {
-                        _error.value = it
+                        _errorRepos.value = it
                     }
 
                     else -> Unit
