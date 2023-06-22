@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.base.Event
+import com.example.domain.users.model.UserRepos
 import com.example.domain.users.model.Users
 import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentUserDetailBinding
 import com.example.githubusers.extension.loadImage
 import com.example.githubusers.users.UsersViewModel
+import com.example.githubusers.users.adapter.UserDetailAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserDetailFragment : Fragment() {
@@ -18,13 +21,27 @@ class UserDetailFragment : Fragment() {
     private var login: String? = null
     private val usersViewModel: UsersViewModel by viewModel()
     private var _binding: FragmentUserDetailBinding? = null
+    private val adapter: UserDetailAdapter by lazy { UserDetailAdapter() }
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         usersViewModel.userDetail.observe(this) { onDataDetail(it) }
+        usersViewModel.userRepos.observe(this) { onDataRepos(it) }
+        usersViewModel.error.observe(this) { onError(it) }
+        usersViewModel.loading.observe(this) { onLoading(it) }
+
         arguments?.let {
             login = it.getString(LOGIN)
+        }
+    }
+
+    private fun onDataRepos(repos: List<UserRepos>?) {
+        repos?.let {
+            binding.recyclerViewUserRepos.layoutManager = LinearLayoutManager(activity)
+            binding.recyclerViewUserRepos.setHasFixedSize(true)
+            adapter.list = it
+            binding.recyclerViewUserRepos.adapter = adapter
         }
     }
 
@@ -46,15 +63,18 @@ class UserDetailFragment : Fragment() {
 
     private fun onDataDetail(userDetail: Users?) {
         userDetail?.let { user ->
-            user.avatar_url?.let { binding.ivAvatar.loadImage(it) }
-            binding.tvName.text = user.name ?: ""
-            binding.tvLogin.text = user.login ?: ""
-            binding.tvNumbersFollowers.text = user.followers?.toString() ?: ""
-            binding.tvNumbersRepos.text = user.public_repos?.toString() ?: ""
-            binding.tvNumbersFollowing.text = user.following?.toString() ?: ""
-//            adapter.list = listOf(userDetail)
-//            binding.rvUsers.adapter = adapter
+            setValues(user)
+            user.login?.let { usersViewModel.getUserRepos(it) }
         }
+    }
+
+    private fun setValues(user: Users) {
+        user.avatar_url?.let { binding.ivAvatar.loadImage(it) }
+        binding.tvName.text = user.name ?: ""
+        binding.tvLogin.text = user.login ?: ""
+        binding.tvNumbersFollowers.text = user.followers?.toString() ?: ""
+        binding.tvNumbersRepos.text = user.public_repos?.toString() ?: ""
+        binding.tvNumbersFollowing.text = user.following?.toString() ?: ""
     }
 
     private fun onLoading(loading: Boolean?) {
@@ -89,11 +109,6 @@ class UserDetailFragment : Fragment() {
     companion object {
         private const val LOGIN = "login"
 
-        fun newInstance(login: String) =
-            UserDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(LOGIN, login)
-                }
-            }
+
     }
 }

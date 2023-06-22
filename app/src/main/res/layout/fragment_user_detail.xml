@@ -66,9 +66,9 @@
             android:id="@+id/tvFollowers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/label_info_followers"
-            android:layout_marginStart="8dp"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivAvatar"
@@ -146,6 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivAvatar"
             tools:layout_editor_absoluteX="16dp">
@@ -154,9 +155,9 @@
                 android:id="@+id/labelRepositories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_info_repos"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:text="@string/label_info_repos"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -180,8 +181,8 @@
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:text="@string/lbl_error_information_detail"
-            android:visibility="gone"
             android:textAlignment="center"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -192,11 +193,11 @@
             android:id="@+id/pbMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
