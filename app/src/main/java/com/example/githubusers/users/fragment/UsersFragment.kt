@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.base.Event
 import com.example.domain.users.model.Users
@@ -17,19 +20,14 @@ import com.example.githubusers.users.adapter.UsersAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UsersFragment : Fragment() {
-    companion object {
-        fun newInstance(): UsersFragment {
-            val args = Bundle().apply { }
-            val fragment = UsersFragment()
-            fragment.arguments = args
-            return fragment
-        }
-    }
 
     private val usersViewModel: UsersViewModel by viewModel()
     private var _binding: FragmentUsersBinding? = null
     private val binding get() = _binding!!
     private val adapter: UsersAdapter by lazy { UsersAdapter() }
+    private val navController: NavController by lazy {
+        findNavController()
+    }
 
     override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
@@ -60,6 +58,9 @@ class UsersFragment : Fragment() {
         usersViewModel.getUsers()
 
         setupListener()
+        binding.toolbar.apply {
+            title = getString(R.string.label_toolbar_main_title)
+        }
     }
 
     private fun setupListener() {
@@ -97,11 +98,20 @@ class UsersFragment : Fragment() {
                 } ?: kotlin.run {
                     ""
                 }
-                val fragment = UserDetailFragment.newInstance(login)
-                val fragmentTransaction = childFragmentManager.beginTransaction()
-                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-                fragmentTransaction.replace(R.id.flMain, fragment).commit()
 
+                val directions = UsersFragmentDirections
+                    .actionUserSearchFragmentToUserDetailsFragment(
+                        login
+                    )
+                navController.navigate(
+                    directions,
+                    NavOptions.Builder()
+                        .setEnterAnim(R.anim.enter_in_right)
+                        .setExitAnim(R.anim.exit_out_left)
+                        .setPopEnterAnim(R.anim.slide_in_left)
+                        .setPopExitAnim(R.anim.slide_out_right)
+                        .build()
+                )
             }
         })
     }
