@@ -8,6 +8,7 @@
     <string name="label_user_repos_fragment">User Repos</string>
     <string name="label_search_fragment">Buscar usuário</string>
 
+    <string name="label_toolbar_main_title">Listagem de usuários GitHub</string>
     <string name="label_toolbar_title">Detalhes</string>
     <string name="label_info_followers">Seguidores</string>
     <string name="label_info_following">Seguindo</string>
