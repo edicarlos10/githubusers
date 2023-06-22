@@ -35,9 +35,9 @@ Seguindo com:
 Outros detalhes podem ser _conferidos nos arquivos do projeto._
 # Melhorias
 - Essa aplicação, teve uma deadline de 3 dias, e _precisa-se de melhorias visuais.
-- O código também precisa de otimizações, como por exemplo **_remoção de codigo morto._**. Onde poderá ser feito futuramente.
+- O código também precisa de otimizações. Onde poderá ser feito futuramente.
 - Também é necessário, para otimizar, criar um arquivo **dependences** e alinhar todos os .gradle que implementam as libs
-- Melhorias de visual e fluxo, devido a deadline, alguns detalhes não foi possivel ser **construido** (dimens, colors, navegação)
+- Melhorias de visual e fluxo, devido a deadline, alguns detalhes não foi possivel ser **construido** (dimens, colors e etc)
 
 Também acrescento que, **considero ferramentas, que posso usar a qualquer momento**, pode ser usado o jetpack compose, Flow e as coroutines mas devido a **deadline** segui com as quais 
 consigo entregar dentro do tempo definido.
