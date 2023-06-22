@@ -48,18 +48,21 @@ class UsersFragment : Fragment() {
 
     private fun onData(users: List<Users>?) {
         users.let {
-
+            if (it != null) {
+                setupRecycleView(it)
+            }
         }
     }
 
     private fun onLoading(loading: Boolean?) {
         loading?.let {
             if (it){
-                binding.pbMain.visibility = View.GONE
+                binding.pbMain.visibility = View.VISIBLE
                 binding.textError.visibility = View.GONE
             }
             else
-                binding.pbMain.visibility = View.VISIBLE
+                binding.pbMain.visibility = View.GONE
+                binding.clList.visibility = View.VISIBLE
         }
     }
 
