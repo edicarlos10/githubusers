@@ -16,9 +16,9 @@ import com.example.githubusers.users.adapter.UsersAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UsersFragment : Fragment() {
-    companion object{
-        fun newInstance() : UsersFragment{
-            val args = Bundle().apply {  }
+    companion object {
+        fun newInstance(): UsersFragment {
+            val args = Bundle().apply { }
             val fragment = UsersFragment()
             fragment.arguments = args
             return fragment
@@ -58,6 +58,10 @@ class UsersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         usersViewModel.getUsers()
 
+        setupListener()
+    }
+
+    private fun setupListener() {
         binding.textError.setOnClickListener {
             usersViewModel.getUsers()
         }
@@ -94,14 +98,13 @@ class UsersFragment : Fragment() {
 
     private fun onLoading(loading: Boolean?) {
         loading?.let {
-            if (it){
+            if (it) {
                 binding.pbMain.visibility = View.VISIBLE
                 binding.textError.visibility = View.GONE
                 binding.clList.visibility = View.GONE
-            }
-            else
+            } else
                 binding.pbMain.visibility = View.GONE
-                binding.clList.visibility = View.VISIBLE
+            binding.clList.visibility = View.VISIBLE
         }
     }
 
