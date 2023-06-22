@@ -1,6 +1,5 @@
 package com.example.network.remote
 
-import com.example.domain.users.model.UserDetail
 import com.example.domain.users.model.UserRepos
 import com.example.domain.users.model.Users
 import com.example.network.remote.api.IGitHubUsersApiClient
@@ -19,12 +18,12 @@ class UsersRemoteData (private val apiGitHubUsers: IGitHubUsersApiClient) : IUse
             }
     }
 
-    override fun getUserDetail(username: String): Single<UserDetail> {
+    override fun getUserDetail(username: String): Single<Users> {
         return apiGitHubUsers.getUserDetail(username)
             .map {
                 errorBody = it.errorBody()?.string()
 
-                it.body()?.toUserDetail()
+                it.body()?.toUsers()
                     ?: throw Exception(errorBody)
 
             }

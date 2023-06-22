@@ -3,43 +3,23 @@ package com.example.network.remote.response
 import com.example.domain.users.model.Users
 
 data class UsersResponse(
-    val avatar_url: String? = null,
-    val events_url: String? = null,
-    val followers_url: String? = null,
-    val following_url: String? = null,
-    val gists_url: String? = null,
-    val gravatar_id: String? = null,
-    val html_url: String? = null,
     val id: Int? = null,
-    val login: String? = null,
-    val node_id: String? = null,
-    val organizations_url: String? = null,
-    val received_events_url: String? = null,
-    val repos_url: String? = null,
-    val site_admin: Boolean? = null,
-    val starred_url: String? = null,
-    val subscriptions_url: String? = null,
     val type: String? = null,
-    val url: String? = null
+    val avatar_url: String? = null,
+    val login: String? = null,
+    val name: String? = null,
+    val followers: Int? = null,
+    val following: Int? = null,
+    val public_repos: Int? = null
 ) {
     fun toUsers(): Users = Users(
-        avatar_url ?: "",
-        events_url ?: "",
-        followers_url ?: "",
-        following_url ?: "",
-        gists_url ?: "",
-        gravatar_id ?: "",
-        html_url ?: "",
         id ?: 0,
-        login ?: "",
-        node_id ?: "",
-        organizations_url ?: "",
-        received_events_url ?: "",
-        repos_url ?: "",
-        site_admin ?: false,
-        starred_url ?: "",
-        subscriptions_url ?: "",
         type ?: "",
-        url ?: ""
+        avatar_url ?: "",
+        login ?: "",
+        name ?: "",
+        followers ?: 0,
+        following ?: 0,
+        public_repos ?: 0
     )
 }

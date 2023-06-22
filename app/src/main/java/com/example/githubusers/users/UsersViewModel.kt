@@ -3,7 +3,6 @@ package com.example.githubusers.users
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.domain.base.Event
-import com.example.domain.users.model.UserDetail
 import com.example.domain.users.model.UserRepos
 import com.example.domain.users.model.Users
 import com.example.domain.users.usecase.GetUserDetailUseCase
@@ -32,8 +31,8 @@ class UsersViewModel(
     val users: LiveData<List<Users>?>
         get() = _users
 
-    private val _userDetails = MutableLiveData<UserDetail?>()
-    val userDetail: LiveData<UserDetail?>
+    private val _userDetails = MutableLiveData<Users?>()
+    val userDetail: LiveData<Users?>
         get() = _userDetails
 
     private val _userRepos = MutableLiveData<List<UserRepos>?>()
@@ -68,7 +67,7 @@ class UsersViewModel(
                 _loading.value = it.isLoading()
                 when (it) {
                     is Event.Data<*> -> {
-                        _userDetails.value = it.data as UserDetail
+                        _userDetails.value = it.data as Users
                     }
 
                     is Event.Error -> {

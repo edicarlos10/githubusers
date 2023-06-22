@@ -2,7 +2,6 @@ package com.example.network
 
 import com.example.domain.IUsersRepository
 import com.example.domain.base.ThrowableBase
-import com.example.domain.users.model.UserDetail
 import com.example.domain.users.model.UserRepos
 import com.example.domain.users.model.Users
 import com.example.network.remote.IUsersRemoteData
@@ -14,7 +13,7 @@ class UsersRepository (private val usersRemoteData: IUsersRemoteData) : IUsersRe
             .onErrorResumeNext { ThrowableBase.parseError(it).toSingleError()}
     }
 
-    override fun getUserDetail(username: String): Single<UserDetail> {
+    override fun getUserDetail(username: String): Single<Users> {
         return usersRemoteData.getUserDetail(username)
             .onErrorResumeNext { ThrowableBase.parseError(it).toSingleError()}
     }

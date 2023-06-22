@@ -3,7 +3,7 @@ package com.example.domain.users
 import com.example.domain.IUsersRepository
 import com.example.domain.base.BaseTest
 import com.example.domain.base.Event
-import com.example.domain.users.model.UserDetail
+import com.example.domain.users.model.Users
 import com.example.domain.users.usecase.GetUserDetailUseCase
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
@@ -19,39 +19,15 @@ class GetUserDetailUseCaseTest : BaseTest() {
     private lateinit var usecase: GetUserDetailUseCase
 
     private val expected =
-        UserDetail(
-            avatar_url = "https://avatars.githubusercontent.com/u/1?v=4",
-            bio = null,
-            blog = "http://tom.preston-werner.com",
-            company = "@chatterbugapp",
-            created_at = "2007-10-20T05:24:19Z",
-            email = null,
-            events_url = "https://api.github.com/users/mojombo/events{/privacy}",
-            followers = 23516,
-            followers_url = "https://api.github.com/users/mojombo/followers",
-            following = 11,
-            following_url = "https://api.github.com/users/mojombo/following{/other_user}",
-            gists_url = "https://api.github.com/users/mojombo/gists{/gist_id}",
-            gravatar_id = "",
-            hireable = null,
-            html_url = "https://github.com/mojombo",
+        Users(
             id = 1,
-            location = "San Francisco",
+            type = "User",
+            avatar_url = "https://avatars.githubusercontent.com/u/1?v=4",
             login = "mojombo",
-            name = "Tom Preston-Werner",
-            node_id = "MDQ6VXNlcjE=",
-            organizations_url = "https://api.github.com/users/mojombo/orgs",
-            public_gists = 62,
-            public_repos = 65,
-            received_events_url = "https://api.github.com/users/mojombo/received_events",
-            repos_url = "https://api.github.com/users/mojombo/repos",
-            site_admin = false,
-            starred_url = "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
-            subscriptions_url = "https://api.github.com/users/mojombo/subscriptions",
-            twitter_username = "mojombo",
-            type = "",
-            updated_at = "2023-03-22T15:06:06Z",
-            url = "https://api.github.com/users/mojombo"
+            name = "mojombo",
+            followers = 2,
+            following = 2,
+            public_repos = 1
         )
 
     @Test

@@ -1,6 +1,5 @@
 package com.example.network.remote.api
 
-import com.example.network.remote.response.UserDetailResponse
 import com.example.network.remote.response.UserReposResponse
 import com.example.network.remote.response.UsersResponse
 import io.reactivex.Single
@@ -14,7 +13,7 @@ interface IGitHubUsersApiClient {
     ): Single<Response<List<UsersResponse>>>
 
     @GET("users/{username}")
-    fun getUserDetail(@Path("username") username: String?): Single<Response<UserDetailResponse>>
+    fun getUserDetail(@Path("username") username: String?): Single<Response<UsersResponse>>
 
     @GET("users/{username}/repos")
     fun getUserRepos(@Path("username") username: String?): Single<Response<List<UserReposResponse>>>
