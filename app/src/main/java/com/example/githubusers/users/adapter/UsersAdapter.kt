@@ -7,9 +7,8 @@ import com.example.domain.users.model.Users
 import com.example.githubusers.databinding.UserItemBinding
 import com.example.githubusers.extension.loadImage
 
-class UsersAdapter(
+class UsersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var list: List<Users>? = listOf()
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = UserItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UsersViewHolder(binding)
