@@ -4,11 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.users.model.UserRepos
-import com.example.domain.users.model.Users
-import com.example.githubusers.databinding.FragmentUserDetailBinding
 import com.example.githubusers.databinding.ItemUserRepositoriesBinding
-import com.example.githubusers.databinding.UserItemBinding
-import com.example.githubusers.extension.loadImage
 
 class UserDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var list: List<UserRepos>? = listOf()

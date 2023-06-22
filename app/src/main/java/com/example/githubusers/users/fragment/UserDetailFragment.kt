@@ -29,7 +29,9 @@ class UserDetailFragment : Fragment() {
         usersViewModel.userDetail.observe(this) { onDataDetail(it) }
         usersViewModel.userRepos.observe(this) { onDataRepos(it) }
         usersViewModel.error.observe(this) { onError(it) }
+        usersViewModel.errorRepos.observe(this) { onErrorRepos(it) }
         usersViewModel.loading.observe(this) { onLoading(it) }
+        usersViewModel.loadingRepos.observe(this) { onLoadingRepos(it) }
 
         arguments?.let {
             login = it.getString(LOGIN)
@@ -81,7 +83,6 @@ class UserDetailFragment : Fragment() {
         loading?.let {
             if (it) {
                 binding.pbMain.visibility = View.VISIBLE
-                binding.textError.visibility = View.GONE
                 binding.cvInformation.visibility = View.GONE
             } else {
                 binding.pbMain.visibility = View.GONE
@@ -91,11 +92,31 @@ class UserDetailFragment : Fragment() {
     }
 
     private fun onError(error: Event.Error?) {
-        binding.textError.visibility = View.VISIBLE
         binding.cvInformation.visibility = View.GONE
         if (error == null)
             return
     }
+
+    private fun onLoadingRepos(loading: Boolean?) {
+        loading?.let {
+            if (it) {
+                binding.pbSecond.visibility = View.VISIBLE
+                binding.textError.visibility = View.GONE
+                binding.cvRepositories.visibility = View.GONE
+            } else {
+                binding.pbSecond.visibility = View.GONE
+                binding.cvRepositories.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun onErrorRepos(error: Event.Error?) {
+        binding.textError.visibility = View.VISIBLE
+        binding.cvRepositories.visibility = View.GONE
+        if (error == null)
+            return
+    }
+
 
     private fun setupToolbar() {
         binding.toolbar.apply {
@@ -108,7 +129,5 @@ class UserDetailFragment : Fragment() {
 
     companion object {
         private const val LOGIN = "login"
-
-
     }
 }
