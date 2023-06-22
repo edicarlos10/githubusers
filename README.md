@@ -42,7 +42,6 @@ Outros detalhes podem ser _conferidos nos arquivos do projeto._
 Também acrescento que, **considero ferramentas, que posso usar a qualquer momento**, pode ser usado o jetpack compose, Flow e as coroutines mas devido a **deadline** segui com as quais 
 consigo entregar dentro do tempo definido.
 
-# Preview do APP rodando
 
 # Testes
 Testes unitários foram criados para a camada de Network e Domain. Elas englobam:
@@ -56,7 +55,19 @@ Clicando em usuário irá para tela de detalhes, com os repos disponíveis.
 
 Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste
 
+
 # Preview do APP rodando
+São duas telas construidas.
+- Listagem
+- Detalhes
+  
+<p float="left">
+
+ <img src="https://github.com/edicarlos10/githubusers/blob/master/app/src/main/java/com/example/githubusers/img/f.png" width="200" />
+
+ <img src="https://github.com/edicarlos10/githubusers/blob/master/app/src/main/java/com/example/githubusers/img/f2.png" width="200" /> 
+
+</p>
 
 
 # Licensa
