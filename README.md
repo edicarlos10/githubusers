@@ -44,10 +44,15 @@ consigo entregar dentro do tempo definido.
 
 # Preview do APP rodando
 
+# Testes
 Testes unitários foram criados para a camada de Network e Domain. Elas englobam:
 - Remote data
 - Repository
 - Use Cases
+
+Abra o app, e aparecerá uma listagem de usuários
+Possivel fazer pesquisa
+Clicando em usuário irá para tela de detalhes, com os repos disponíveis.
 
 Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste
 
