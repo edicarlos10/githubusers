@@ -15,7 +15,7 @@
     <string name="label_info_repos">Repositorios</string>
     <string name="label_info_watch">Vendo</string>
     <string name="label_info_fork">Forks</string>
-    <string name="label_info_star">Stars</string>
+    <string name="label_info_star">Estrelas</string>
 
 
 </resources>
