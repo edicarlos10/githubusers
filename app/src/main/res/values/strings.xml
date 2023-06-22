@@ -7,5 +7,13 @@
     <string name="label_user_repos_fragment">User Repos</string>
     <string name="label_search_fragment">Buscar usuário</string>
 
+    <string name="label_toolbar_title">Detalhes</string>
+    <string name="label_info_followers">Seguidores</string>
+    <string name="label_info_following">Seguindo</string>
+    <string name="label_info_repos">Repositorios</string>
+    <string name="label_info_watch">Vendo</string>
+    <string name="label_info_fork">Forks</string>
+    <string name="label_info_star">Stars</string>
+
 
 </resources>
