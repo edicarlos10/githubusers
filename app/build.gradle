@@ -68,16 +68,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.6'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
     implementation 'com.squareup.moshi:moshi-kotlin:1.12.0'
-//    implementation 'androidx.room:room-runtime:2.4.2'
-//    annotationProcessor 'androidx.room:room-compiler:2.4.2'
-//    implementation 'androidx.room:room-ktx:2.4.2'
+
     implementation 'com.airbnb.android:lottie:5.0.3'
 
     implementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.6'
-//    implementation 'io.mockk:mockk:1.12.3'
-//    implementation 'io.mockk:mockk-android:1.12.3'
-//    implementation 'org.mockito:mockito-android:4.4.0'
-//    implementation 'org.mockito:mockito-core:4.4.0'
+
 
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
@@ -85,4 +80,8 @@ dependencies {
 
     def koin_version = '3.2.0-beta-1'
     implementation "io.insert-koin:koin-android:$koin_version"
+
+    def glide_version = '4.15.1'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 }
