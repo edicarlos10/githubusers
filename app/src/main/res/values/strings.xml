@@ -2,6 +2,7 @@
     <string name="app_name">githubusers</string>
 
     <string name="lbl_error_information">Não foi possível carregar as informações. \n Toque aqui para recarregar.</string>
+    <string name="lbl_error_information_detail">Não foi possível carregar as informações.</string>
     <string name="label_user_fragment">Users</string>
     <string name="label_user_detail_fragment">User Detail</string>
     <string name="label_user_repos_fragment">User Repos</string>

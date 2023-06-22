@@ -9,6 +9,7 @@ import com.example.domain.base.Event
 import com.example.domain.users.model.Users
 import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentUserDetailBinding
+import com.example.githubusers.extension.loadImage
 import com.example.githubusers.users.UsersViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -40,10 +41,17 @@ class UserDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupToolbar()
+        login?.let { usersViewModel.getUserDetail(it) }
     }
 
     private fun onDataDetail(userDetail: Users?) {
-        userDetail?.let {
+        userDetail?.let { user ->
+            user.avatar_url?.let { binding.ivAvatar.loadImage(it) }
+            binding.tvName.text = user.name ?: ""
+            binding.tvLogin.text = user.login ?: ""
+            binding.tvNumbersFollowers.text = user.followers?.toString() ?: ""
+            binding.tvNumbersRepos.text = user.public_repos?.toString() ?: ""
+            binding.tvNumbersFollowing.text = user.following?.toString() ?: ""
 //            adapter.list = listOf(userDetail)
 //            binding.rvUsers.adapter = adapter
         }
@@ -52,19 +60,19 @@ class UserDetailFragment : Fragment() {
     private fun onLoading(loading: Boolean?) {
         loading?.let {
             if (it) {
-//                binding.pbMain.visibility = View.VISIBLE
-//                binding.textError.visibility = View.GONE
-//                binding.clList.visibility = View.GONE
+                binding.pbMain.visibility = View.VISIBLE
+                binding.textError.visibility = View.GONE
+                binding.cvInformation.visibility = View.GONE
             } else {
-//                binding.pbMain.visibility = View.GONE
-//            binding.clList.visibility = View.VISIBLE
+                binding.pbMain.visibility = View.GONE
+                binding.cvInformation.visibility = View.VISIBLE
             }
         }
     }
 
     private fun onError(error: Event.Error?) {
-//        binding.textError.visibility = View.VISIBLE
-//        binding.clList.visibility = View.GONE
+        binding.textError.visibility = View.VISIBLE
+        binding.cvInformation.visibility = View.GONE
         if (error == null)
             return
     }
@@ -81,7 +89,7 @@ class UserDetailFragment : Fragment() {
     companion object {
         private const val LOGIN = "login"
 
-        fun newInstance(login: String, param2: String) =
+        fun newInstance(login: String) =
             UserDetailFragment().apply {
                 arguments = Bundle().apply {
                     putString(LOGIN, login)

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.base.Event
 import com.example.domain.users.model.Users
+import com.example.githubusers.R
 import com.example.githubusers.databinding.FragmentUsersBinding
 import com.example.githubusers.extension.OnItemClickListener
 import com.example.githubusers.extension.addOnItemClickListener
@@ -91,6 +92,15 @@ class UsersFragment : Fragment() {
         binding.rvUsers.adapter = adapter
         binding.rvUsers.addOnItemClickListener(object : OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
+                val login = adapter.list?.let {
+                    it[position].login
+                } ?: kotlin.run {
+                    ""
+                }
+                val fragment = UserDetailFragment.newInstance(login)
+                val fragmentTransaction = childFragmentManager.beginTransaction()
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                fragmentTransaction.replace(R.id.flMain, fragment).commit()
 
             }
         })
